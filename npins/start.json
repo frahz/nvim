@@ -14,7 +14,7 @@
       "version": "v2.12.2",
       "revision": "74194977d829b0d2de9a1514060114b568f6fdba",
       "url": "https://api.github.com/repos/lumen-oss/lz.n/tarball/v2.12.2",
-      "hash": "0d0szsc2k92m6ak894jym9y262i21nav0qsx2wpg72zm9sa27zv0"
+      "hash": "sha256-YP8jlE71i/MuF11jsJUNIgojfKpekoSmMlWkKZj+GjQ="
     },
     "nvim-lspconfig": {
       "type": "Git",
@@ -27,7 +27,7 @@
       "submodules": false,
       "revision": "ac98db2f9f06a56498ec890a96928774eae412c3",
       "url": "https://github.com/neovim/nvim-lspconfig/archive/ac98db2f9f06a56498ec890a96928774eae412c3.tar.gz",
-      "hash": "0ncrknyldkaf2i053bkmzd7x58jflsyv6y5fr1wnbq26ynrxf245"
+      "hash": "sha256-hQjXs/VG4GV5yK54s72mTqLST/t1rlFAFE7NRr2dmVk="
     },
     "plenary.nvim": {
       "type": "Git",
@@ -40,8 +40,8 @@
       "submodules": false,
       "revision": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
       "url": "https://github.com/nvim-lua/plenary.nvim/archive/b9fd5226c2f76c951fc8ed5923d85e4de065e509.tar.gz",
-      "hash": "1kg043h7dqcrqqgg8pp6hsldx7jdhlh8qwad2kkckia191xgnjgm"
+      "hash": "sha256-9Un7ekhBxcnmFE1xjCCFTZ7eqIbmXvQexpnhduAg4M0="
     }
   },
-  "version": 5
+  "version": 7
 }

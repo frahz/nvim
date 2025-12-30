@@ -70,7 +70,7 @@
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShellNoCC {
           packages = [
-            self.packages.${pkgs.system}.dev
+            self.packages.${pkgs.stdenv.hostPlatform.system}.dev
             pkgs.npins
           ];
         };
