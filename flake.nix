@@ -54,6 +54,7 @@
             pkgs.fzf
             pkgs.git
             pkgs.ripgrep
+            pkgs.tree-sitter
 
             pkgs.nil
             pkgs.tinymist
