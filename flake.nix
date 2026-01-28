@@ -62,7 +62,7 @@
 
             # Formatters
             pkgs.typstyle
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
           ];
         };
 
