@@ -48,6 +48,31 @@ vim.diagnostic.config({
     },
 })
 
+vim.lsp.config("jsonls", {
+    settings = {
+        json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+        }
+    },
+})
+
+vim.lsp.config("yamlls", {
+    settings = {
+        yaml = {
+            validate = true,
+            completion = true,
+            suggest = {
+                parentSkeletonSelectedFirst = true,
+            },
+            schemas = require("schemastore").yaml.schemas(),
+        },
+        redhat = {
+            telemetry = { enabled = false },
+        },
+    },
+})
+
 vim.lsp.enable({
     "bashls",
     "clangd",
@@ -66,4 +91,5 @@ vim.lsp.enable({
     "tailwindcss",
     "tinymist",
     "ts_ls",
+    "yamlls"
 })

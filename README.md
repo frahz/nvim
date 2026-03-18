@@ -5,7 +5,7 @@
 ## Install/Run
 
 ```sh
-nix run github:frahz/nvim-flake
+nix run github:frahz/nvim
 ```
 
 ## Adding new plugins

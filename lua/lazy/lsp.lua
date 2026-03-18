@@ -12,5 +12,6 @@ return {
                 },
             })
         end,
-    }
+    },
+    { "SchemaStore.nvim" },
 }

@@ -10,7 +10,6 @@ return {
                 flake = {
                     autoArchive = false,
                     autoEvalInputs = false,
-                    nixpkgsInputName = nil,
                 },
             }
         }

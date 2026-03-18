@@ -35,7 +35,9 @@
           '';
 
           plugins = {
-            start = mnw.lib.npinsToPlugins pkgs ./npins/start.json;
+            start = [
+              pkgs.vimPlugins.SchemaStore-nvim
+            ] ++ mnw.lib.npinsToPlugins pkgs ./npins/start.json;
 
             # Anything that you're loading lazily should be put here
             opt = [
