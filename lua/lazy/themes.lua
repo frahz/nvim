@@ -10,7 +10,7 @@ return {
                 lsp_styles = { inlay_hints = { background = false } },
                 integrations = { blink_cmp = true },
             })
-            vim.cmd.colorscheme("catppuccin")
+            vim.cmd.colorscheme("catppuccin-nvim")
         end
     },
 }

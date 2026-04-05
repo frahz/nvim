@@ -25,9 +25,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "902e0f5f4819386602c84e223979311c6022c310",
-      "url": "https://github.com/neovim/nvim-lspconfig/archive/902e0f5f4819386602c84e223979311c6022c310.tar.gz",
-      "hash": "sha256-d6zCzNJCbY7uos4or14J3XvRoUFhMsdBMkb4BOLzdos="
+      "revision": "9ccd58a7949091c0cc2777d4e92a45a209c808c1",
+      "url": "https://github.com/neovim/nvim-lspconfig/archive/9ccd58a7949091c0cc2777d4e92a45a209c808c1.tar.gz",
+      "hash": "sha256-t8iFoSJGODxHhxZbg2kUapNKUHK08IjCfeafGEDO28g="
     },
     "plenary.nvim": {
       "type": "Git",
