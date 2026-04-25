@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     mnw.url = "github:Gerg-L/mnw";
   };
   outputs =
@@ -22,54 +22,113 @@
         function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
     in
     {
-      packages = forAllSystems (pkgs: rec {
-        default = mnw.lib.wrap pkgs {
-          neovim = pkgs.neovim-unwrapped;
-
-          # all files in the `lua/lazy` folder are now autoloaded, so no need
-          # for an init.lua in there
-          initLua = ''
-            require("frahz")
-            LZN = require("lz.n")
-            LZN.load("lazy")
-          '';
-
-          plugins = {
-            start = [
-              pkgs.vimPlugins.SchemaStore-nvim
-            ] ++ mnw.lib.npinsToPlugins pkgs ./npins/start.json;
-
-            # Anything that you're loading lazily should be put here
-            opt = [
-              pkgs.vimPlugins.blink-cmp
-              pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      packages = forAllSystems (
+        pkgs:
+        let
+          grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+            p: with p; [
+              asm
+              astro
+              bash
+              beancount
+              c
+              c_sharp
+              caddy
+              cmake
+              comment
+              cpp
+              css
+              csv
+              devicetree
+              diff
+              dockerfile
+              git_config
+              git_rebase
+              gitcommit
+              gitignore
+              go
+              gomod
+              gosum
+              gotmpl
+              html
+              htmldjango
+              hyprlang
+              ini
+              java
+              javadoc
+              javascript
+              jjdescription
+              jsdoc
+              json
+              just
+              kconfig
+              kdl
+              kotlin
+              lua
+              markdown
+              markdown_inline
+              meson
+              ninja
+              nix
+              python
+              rust
+              sql
+              starlark
+              svelte
+              tmux
+              toml
+              tsx
+              typescript
+              typst
+              vim
+              vimdoc
+              xml
+              yaml
+              zig
+              zsh
             ]
-            ++ mnw.lib.npinsToPlugins pkgs ./npins/opt.json;
+          );
+        in
+        rec {
+          default = mnw.lib.wrap pkgs {
+            neovim = pkgs.neovim-unwrapped;
 
-            dev.frahz = {
-              pure = ./.;
-              impure = "~/coding/neovim-flake";
+            # all files in the `lua/lazy` folder are now autoloaded, so no need
+            # for an init.lua in there
+            initLua = ''
+              require("frahz")
+              LZN = require("lz.n")
+              LZN.load("lazy")
+            '';
+
+            plugins = {
+              start = [
+                pkgs.vimPlugins.SchemaStore-nvim
+              ]
+              ++ mnw.lib.npinsToPlugins pkgs ./npins/start.json;
+
+              # Anything that you're loading lazily should be put here
+              opt = [
+                pkgs.vimPlugins.blink-cmp
+                grammars
+              ]
+              ++ mnw.lib.npinsToPlugins pkgs ./npins/opt.json;
+
+              dev.frahz = {
+                pure = ./.;
+                impure = "~/coding/neovim-flake";
+              };
             };
+            extraBinPath = [
+              pkgs.fd
+              pkgs.fzf
+              pkgs.ripgrep
+            ];
           };
-          extraBinPath = [
-            pkgs.fd
-            pkgs.fzf
-            pkgs.git
-            pkgs.ripgrep
-            pkgs.tree-sitter
 
-            pkgs.nil
-            pkgs.tinymist
-            pkgs.marksman
-
-            # Formatters
-            pkgs.typstyle
-            pkgs.nixfmt
-          ];
-        };
-
-        dev = default.devMode;
-      });
+          dev = default.devMode;
+        }
+      );
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShellNoCC {
           packages = [
