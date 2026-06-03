@@ -8,5 +8,4 @@ return {
         "--suggest-missing-includes",
         "--all-scopes-completion",
     },
-    filetypes = { "c", "cpp", "cc" },
 }
