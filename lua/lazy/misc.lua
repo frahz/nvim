@@ -1,3 +1,4 @@
+local is_wsl = vim.uv.os_uname().sysname == 'Linux' and vim.uv.os_uname().release:lower():find 'microsoft'
 return {
     {
         "guess-indent.nvim",
@@ -10,7 +11,7 @@ return {
         ft = "typst",
         after = function()
             require("typst-preview").setup({
-                open_cmd = "firefox %s --class typst-preview",
+                open_cmd = is_wsl and "wsl-open %s",
                 dependencies_bin = {
                     ["tinymist"] = "tinymist",
                     ["websocat"] = "websocat"
