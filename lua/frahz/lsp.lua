@@ -74,6 +74,7 @@ vim.lsp.config("yamlls", {
 })
 
 vim.lsp.enable({
+    "astro",
     "bashls",
     "clangd",
     "cssls",
