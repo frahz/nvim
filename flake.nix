@@ -75,7 +75,6 @@
               sql
               starlark
               svelte
-              tmux
               toml
               tsx
               typescript
